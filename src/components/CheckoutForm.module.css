@@ -1,0 +1,166 @@
+.intro {
+  max-width: 38rem;
+  margin-top: 1rem;
+}
+
+.empty {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.layout {
+  display: grid;
+  gap: 2.5rem;
+  margin-top: 2.2rem;
+}
+
+.form,
+.fields,
+.summary {
+  display: grid;
+  gap: 1.15rem;
+}
+
+.pair {
+  display: grid;
+  gap: 1.15rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  padding: 0.55rem 0;
+}
+
+.field input[aria-invalid="true"],
+.field select[aria-invalid="true"] {
+  border-bottom-color: var(--accent);
+}
+
+.delivery {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.delivery legend {
+  margin-bottom: 0.45rem;
+}
+
+.option {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0.75rem;
+  align-items: start;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--line);
+  cursor: pointer;
+}
+
+.option:focus-within {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+.option:has(input:checked) {
+  border-bottom-color: var(--ink);
+}
+
+.option input {
+  margin-top: 0.35rem;
+  accent-color: var(--ink);
+}
+
+.optionLabel,
+.optionDetail {
+  display: block;
+}
+
+.optionDetail,
+.hint,
+.itemMeta {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.itemMeta {
+  display: block;
+}
+
+.error {
+  color: var(--accent);
+  font-size: 0.95rem;
+}
+
+.alert {
+  display: grid;
+  gap: 0.4rem;
+  padding-bottom: 0.4rem;
+  color: var(--accent);
+}
+
+.alert ul {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.summary h2 {
+  font-size: 2rem;
+}
+
+.summary ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.summary li,
+.summary p,
+.total {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.total {
+  font-size: 1.2rem;
+  padding-top: 0.4rem;
+  border-top: 1px solid var(--line);
+}
+
+@media (min-width: 860px) {
+  .layout {
+    grid-template-columns: 1.35fr 0.75fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .pair {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .summary {
+    position: sticky;
+    top: 6rem;
+  }
+}
+
+@media (max-width: 860px) {
+  .summary {
+    order: -1;
+  }
+}

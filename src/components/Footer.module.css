@@ -1,0 +1,51 @@
+.footer {
+  border-top: 1px solid var(--line);
+  padding-block: 2.4rem 3rem;
+}
+
+.grid {
+  display: grid;
+  gap: 1.4rem;
+}
+
+.name {
+  font-family: var(--font-display), Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.85rem;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 1.2rem;
+}
+
+.links a {
+  text-decoration: none;
+}
+
+.links a:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.fine {
+  margin-top: 0.4rem;
+  max-width: 38rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+@media (min-width: 800px) {
+  .grid {
+    grid-template-columns: 1.4fr 1fr;
+    align-items: end;
+  }
+
+  .links {
+    justify-content: flex-end;
+  }
+}

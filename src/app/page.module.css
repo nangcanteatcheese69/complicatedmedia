@@ -1,0 +1,178 @@
+.hero {
+  display: grid;
+  gap: 1.1rem;
+  padding-bottom: 2rem;
+}
+
+.hero h1 {
+  max-width: 11em;
+}
+
+.hero h1 em {
+  font-style: italic;
+  font-weight: 500;
+}
+
+.dek {
+  max-width: 34rem;
+  font-size: 1.15rem;
+}
+
+.heroFrame {
+  position: relative;
+  height: min(82vh, 860px);
+  background: var(--paper-deep);
+}
+
+.feature {
+  display: grid;
+  gap: 0.7rem;
+  padding-block: 1.25rem 0;
+}
+
+.feature a {
+  width: fit-content;
+}
+
+.index {
+  padding-block: 4.5rem 1rem;
+}
+
+.indexTitle {
+  font-size: clamp(1.4rem, 2vw, 1.8rem);
+  margin-bottom: 0.5rem;
+}
+
+.rows {
+  list-style: none;
+  padding: 0;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr auto;
+  gap: 0.8rem;
+  align-items: baseline;
+  padding-block: 1.05rem;
+  border-top: 1px solid var(--line);
+  text-decoration: none;
+}
+
+.rows li:last-child .row {
+  border-bottom: 1px solid var(--line);
+}
+
+.num,
+.year {
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.name {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.row:hover .name {
+  font-style: italic;
+}
+
+.split {
+  display: grid;
+  gap: 1.5rem;
+  padding-block: 1rem 4rem;
+}
+
+.split h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.journal {
+  display: grid;
+  gap: 0.7rem;
+  align-content: end;
+}
+
+.films {
+  display: grid;
+  grid-template-columns: min(220px, 42vw) 1fr;
+  gap: 1.25rem;
+  align-items: end;
+  margin-top: 0.8rem;
+  text-decoration: none;
+}
+
+.films > span:last-child {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.poster {
+  position: relative;
+  aspect-ratio: 9 / 16;
+  background: var(--dark);
+  overflow: hidden;
+}
+
+.shop {
+  display: grid;
+  gap: 1.5rem;
+  padding-bottom: 1rem;
+}
+
+.prints {
+  display: grid;
+  gap: 2rem;
+}
+
+.print {
+  display: grid;
+  gap: 0.55rem;
+  text-decoration: none;
+}
+
+.print img {
+  width: 100%;
+  height: auto;
+  background: var(--paper-deep);
+}
+
+.print h3 {
+  font-size: clamp(1.5rem, 2vw, 2rem);
+}
+
+.print:hover h3 {
+  font-style: italic;
+}
+
+@media (min-width: 800px) {
+  .split {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 4rem;
+    align-items: end;
+  }
+
+  .prints {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .row {
+    grid-template-columns: 2rem 1fr;
+  }
+
+  .year {
+    grid-column: 2;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .row:hover .name,
+  .print:hover h3 {
+    font-style: normal;
+  }
+}
