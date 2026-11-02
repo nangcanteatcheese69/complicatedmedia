@@ -70,7 +70,7 @@ export type Product = {
   title: string;
   seriesSlug: string;
   year: string;
-  kind: "print" | "original";
+  kind: "print" | "original" | "sticker";
   summary: string;
   description: string;
   image: Plate;

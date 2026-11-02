@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
-import { fromPrice, products } from "@/content/products";
+import { fromPrice, productKindLabel, products, showsFromPrice } from "@/content/products";
 import { money } from "@/lib/format";
 import styles from "./shop.module.css";
 
 export const metadata: Metadata = {
   title: "Shop",
-  description: "Small editions of prints and one unique work by complicated-media.",
+  description: "Vinyl stickers and small editions of prints by complicated-media.",
 };
 
 export default function ShopPage() {
@@ -21,19 +22,26 @@ export default function ShopPage() {
         </div>
       ) : (
         <>
-          <p className="lede">Archival pigment prints in small editions. Prices in USD.</p>
+          <p className="lede">Vinyl stickers, and prints when they are ready. Prices in USD.</p>
           <div className={styles.grid}>
             {products.map((product) => (
               <Link key={product.slug} className={styles.card} href={`/shop/${product.slug}`}>
+                <Image
+                  src={product.image.src}
+                  alt={product.image.alt}
+                  width={product.image.width}
+                  height={product.image.height}
+                  sizes="(max-width: 720px) 100vw, 40vw"
+                />
                 <p className="kicker">
-                  {product.kind === "original" ? "Original" : "Print"} — {product.year}
+                  {productKindLabel(product.kind)} — {product.year}
                 </p>
                 <h2>{product.title}</h2>
                 <p>{product.summary}</p>
                 <p className="quiet">
-                  {product.kind === "original"
-                    ? money(fromPrice(product))
-                    : `From ${money(fromPrice(product))}`}
+                  {showsFromPrice(product)
+                    ? `From ${money(fromPrice(product))}`
+                    : money(fromPrice(product))}
                 </p>
               </Link>
             ))}

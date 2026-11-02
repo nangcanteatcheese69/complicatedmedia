@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BuyBox } from "@/components/BuyBox";
-import { getProduct, products } from "@/content/products";
+import { getProduct, productKindLabel, products } from "@/content/products";
 import { getSeries } from "@/content/series";
 import styles from "./product.module.css";
 
@@ -51,7 +51,7 @@ export default async function ProductPage({ params }: Props) {
         </figure>
         <div className={styles.info}>
           <p className="kicker">
-            {product.kind === "original" ? "Original" : "Print"} — {product.year}
+            {productKindLabel(product.kind)} — {product.year}
           </p>
           <h1>{product.title}</h1>
           <p className="measure">{product.description}</p>

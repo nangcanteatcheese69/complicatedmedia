@@ -9,7 +9,7 @@ export type CartLine = {
 export type OrderItem = {
   productSlug: string;
   title: string;
-  kind: "print" | "original";
+  kind: "print" | "original" | "sticker";
   sizeId: string;
   sizeLabel: string;
   quantity: number;

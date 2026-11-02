@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { SeriesGallery } from "@/components/SeriesGallery";
-import { fromPrice, productsInSeries } from "@/content/products";
+import { fromPrice, productKindLabel, productsInSeries, showsFromPrice } from "@/content/products";
 import { getSeries, series } from "@/content/series";
 import { money } from "@/lib/format";
 import styles from "../work.module.css";
@@ -53,16 +53,23 @@ export default async function SeriesPage({ params }: Props) {
       <SeriesGallery images={item.images} />
       {prints.length > 0 ? (
         <section className={styles.prints} aria-labelledby="prints-title">
-          <h2 id="prints-title">Prints from this series</h2>
+          <h2 id="prints-title">
+            {prints.every((product) => product.kind === "sticker")
+              ? "Stickers"
+              : "Prints from this series"}
+          </h2>
           <ul>
             {prints.map((product) => (
               <li key={product.slug}>
                 <Link href={`/shop/${product.slug}`}>
-                  <span>{product.title}</span>
+                  <span>
+                    {product.title}
+                    <span className="sr-only">, {productKindLabel(product.kind)}</span>
+                  </span>
                   <span className="quiet">
-                    {product.kind === "original"
-                      ? money(fromPrice(product))
-                      : `From ${money(fromPrice(product))}`}
+                    {showsFromPrice(product)
+                      ? `From ${money(fromPrice(product))}`
+                      : money(fromPrice(product))}
                   </span>
                 </Link>
               </li>

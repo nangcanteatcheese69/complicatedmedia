@@ -1,31 +1,55 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
+import { stickers } from "@/content/graphics";
 import { series } from "@/content/series";
 import styles from "./work.module.css";
 
 export const metadata: Metadata = {
   title: "Work",
-  description: "Photographic series by complicated-media.",
+  description: "Stickers and photographic series by complicated-media.",
 };
 
 export default function WorkPage() {
+  const photographs = series.filter((item) => item.slug !== "graphics");
+
   return (
     <div className="wrap page">
-      <p className="kicker">Series</p>
+      <p className="kicker">Studio</p>
       <h1>Work</h1>
-      {series.length === 0 ? (
-        <div className={styles.empty}>
-          <p className="lede">Nothing is hung yet.</p>
-          <p className="quiet measure">
-            New pictures will be listed here. The zine is the piece you can read now.
+
+      <section className={styles.graphics} aria-labelledby="graphics-title">
+        <div className={styles.graphicsHead}>
+          <p className="kicker">Work</p>
+          <h2 id="graphics-title">Graphics</h2>
+          <p className="measure">
+            Twelve stickers. Open the set, or go straight to a sticker in the shop.
           </p>
-          <Link className="text-link" href="/zine">
-            Open the zine
+          <Link className="text-link" href="/work/graphics">
+            Open the set
           </Link>
         </div>
-      ) : (
+        <ul className={styles.stickerGrid}>
+          {stickers.map((sticker) => (
+            <li key={sticker.slug}>
+              <Link className={styles.sticker} href={`/shop/${sticker.slug}`}>
+                <Image
+                  src={sticker.src}
+                  alt={`Sticker, ${sticker.title}`}
+                  width={sticker.width}
+                  height={sticker.height}
+                  sizes="(max-width: 720px) 45vw, 220px"
+                />
+                <span>{sticker.title}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      {photographs.length > 0 ? (
         <div className={styles.list}>
-          {series.map((item) => (
+          {photographs.map((item) => (
             <Link key={item.slug} className={styles.feature} href={`/work/${item.slug}`}>
               <span className={styles.copy}>
                 <span className="kicker">
@@ -37,7 +61,7 @@ export default function WorkPage() {
             </Link>
           ))}
         </div>
-      )}
+      ) : null}
     </div>
   );
 }

@@ -4,6 +4,50 @@
   margin-top: 1.5rem;
 }
 
+.graphics {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.graphicsHead {
+  display: grid;
+  gap: 0.7rem;
+  max-width: 40rem;
+}
+
+.graphicsHead h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.stickerGrid {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem 1rem;
+}
+
+.sticker {
+  display: grid;
+  gap: 0.55rem;
+  text-decoration: none;
+}
+
+.sticker img {
+  width: 100%;
+  height: auto;
+  background: color-mix(in srgb, var(--paper) 70%, white);
+}
+
+.sticker span {
+  font-size: 1.05rem;
+}
+
+.sticker:hover span {
+  font-style: italic;
+}
+
 .list {
   display: grid;
   margin-top: 2.5rem;
@@ -77,6 +121,13 @@
   font-style: italic;
 }
 
+@media (min-width: 720px) {
+  .stickerGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2rem 1.25rem;
+  }
+}
+
 @media (min-width: 860px) {
   .feature {
     grid-template-columns: 1.25fr 0.75fr;
@@ -91,7 +142,8 @@
 
 @media (prefers-reduced-motion: reduce) {
   .feature:hover h2,
-  .prints a:hover span:first-child {
+  .prints a:hover span:first-child,
+  .sticker:hover span {
     font-style: normal;
   }
 }
