@@ -22,8 +22,6 @@
 
 @media (min-width: 860px) {
   .layout {
-    grid-template-columns: 0.8fr 1.1fr;
-    gap: 3rem;
-    align-items: start;
+    max-width: 42rem;
   }
 }

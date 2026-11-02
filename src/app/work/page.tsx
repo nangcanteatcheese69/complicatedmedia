@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { series } from "@/content/series";
 import styles from "./work.module.css";
 
 export const metadata: Metadata = {
   title: "Work",
-  description: "Photographic series by Nang: coast, night market, empty rooms, and the studio.",
+  description: "Photographic series by complicated-media.",
 };
 
 export default function WorkPage() {
@@ -14,21 +13,20 @@ export default function WorkPage() {
     <div className="wrap page">
       <p className="kicker">Series</p>
       <h1>Work</h1>
-      <p className="lede">Four series. The pictures are made slowly, mostly on foot.</p>
-      <div className={styles.list}>
-        {series.map((item) => {
-          const cover = item.images[0];
-          return (
+      {series.length === 0 ? (
+        <div className={styles.empty}>
+          <p className="lede">Nothing is hung yet.</p>
+          <p className="quiet measure">
+            New pictures will be listed here. The zine is the piece you can read now.
+          </p>
+          <Link className="text-link" href="/zine">
+            Open the zine
+          </Link>
+        </div>
+      ) : (
+        <div className={styles.list}>
+          {series.map((item) => (
             <Link key={item.slug} className={styles.feature} href={`/work/${item.slug}`}>
-              <span className={styles.media}>
-                <Image
-                  src={cover.src}
-                  alt=""
-                  width={cover.width}
-                  height={cover.height}
-                  sizes="(max-width: 860px) 100vw, 60vw"
-                />
-              </span>
               <span className={styles.copy}>
                 <span className="kicker">
                   {item.year} — {item.location}
@@ -37,9 +35,9 @@ export default function WorkPage() {
                 <span>{item.lede}</span>
               </span>
             </Link>
-          );
-        })}
-      </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

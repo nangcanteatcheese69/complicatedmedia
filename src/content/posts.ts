@@ -28,14 +28,6 @@ export const posts: Post[] = [
         text: "What I trust is narrower. A surface. A measurement of light. An object that has been working: a net, a plastic sheet, a scuffed wall, a stack of paper that remembers the humidity. If I can say what the thing does, I can usually make the picture. If I can only say what it looks like, I leave it.",
       },
       {
-        type: "figure",
-        src: "/media/salt-01.jpg",
-        alt: "A pale grey-green sea under a hazy sky, with a thin bright line along the shore and a dark pier at the right.",
-        caption: "Salt Line. The measurement came before the picture.",
-        width: 2000,
-        height: 1334,
-      },
-      {
         type: "p",
         text: "There is a practical side. Walking first tells me what I actually need to carry. The coast wanted one lens and shoes that could go into the water. The rooms wanted a tripod and the patience to ask a stranger for twenty minutes in a place they were done with. The studio wants almost nothing: the window, and the honesty to stop when the weather is doing more than I am.",
       },
@@ -50,7 +42,6 @@ export const posts: Post[] = [
     title: "A borrowed room",
     date: "2025-11-02",
     dek: "Fourteen prints, one weekend, a room above a copy shop that had the right kind of wrong light.",
-    seriesSlug: "rooms-without-furniture",
     blocks: [
       {
         type: "p",
@@ -59,14 +50,6 @@ export const posts: Post[] = [
       {
         type: "p",
         text: "People ask what an exhibition is for if you are not trying to be discovered. I can only answer for this one. I wanted to see the salt pictures next to the rooms, away from the screen, at the size they were printed. On a laptop everything is the same size and the same light. On a wall, a dark picture can sink and a pale one can shout. Two of the coast prints were too cold. I had graded them for the glow of a monitor. In the room they looked like they had been left in the rain. I turned them to the wall by Saturday noon. That was the most useful hour of the weekend.",
-      },
-      {
-        type: "figure",
-        src: "/media/room-01.jpg",
-        alt: "An empty plaster room with one bright window and a trapezoid of sun across the floor.",
-        caption: "The print that stayed on the wall. Nobody bought it.",
-        width: 1600,
-        height: 2000,
       },
       {
         type: "p",
@@ -91,7 +74,6 @@ export const posts: Post[] = [
     title: "What the coast keeps",
     date: "2025-08-18",
     dek: "Field notes from nine days on the same four kilometers, and the list of what I stopped bringing.",
-    seriesSlug: "salt-line",
     blocks: [
       {
         type: "p",
@@ -100,14 +82,6 @@ export const posts: Post[] = [
       {
         type: "p",
         text: "Nine days is not long, but it is long enough to stop performing arrival. I walked the same stretch after coffee and again before the light went. The line was never where I had left it. Some mornings it was a clean white seam. Some mornings the sea had come over it and the sand was a single dark plate, reflective, with my shoes in it. I made the picture anyway. Repetition is not a failure of imagination here. It is the subject.",
-      },
-      {
-        type: "figure",
-        src: "/media/salt-03.jpg",
-        alt: "A narrow band of pale sky over a wide field of dark, reflective water.",
-        caption: "The dark plate. The line was under it.",
-        width: 2000,
-        height: 1250,
       },
       {
         type: "h2",

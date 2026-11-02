@@ -7,7 +7,7 @@ export function Footer() {
     <footer className={styles.footer}>
       <div className={`wrap ${styles.grid}`}>
         <div className="stack">
-          <p className={styles.name}>Nang Suan Mung</p>
+          <p className={styles.name}>complicated-media</p>
           <p className="quiet">Photographs, short films, and prints.</p>
         </div>
         <nav aria-label="Footer" className={styles.links}>
@@ -19,7 +19,7 @@ export function Footer() {
           <Link href="/about">About</Link>
         </nav>
         <p className={styles.fine}>
-          © 2026 Nang. Orders on this preview are simulated and stay in
+          © 2026 complicated-media. Orders on this preview are simulated and stay in
           this browser.
         </p>
       </div>

@@ -68,7 +68,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ errors }, { status: 400, headers: { "Cache-Control": "no-store" } });
   }
 
-  const orderId = `NSM-${crypto.randomUUID().replaceAll("-", "").slice(0, 6).toUpperCase()}`;
+  const orderId = `complicated-media-${crypto.randomUUID().replaceAll("-", "").slice(0, 6).toUpperCase()}`;
   const payment = await settlePayment({
     orderId,
     amountCents: quoted.quote.totalCents,

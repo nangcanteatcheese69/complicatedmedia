@@ -18,10 +18,30 @@
   font-size: 1.15rem;
 }
 
-.heroFrame {
-  position: relative;
-  height: min(82vh, 860px);
-  background: var(--paper-deep);
+.zine {
+  display: grid;
+  grid-template-columns: min(280px, 46vw) 1fr;
+  gap: 1.75rem 2.5rem;
+  align-items: end;
+  padding-bottom: 3rem;
+}
+
+.cover {
+  display: block;
+  line-height: 0;
+}
+
+.cover img {
+  width: 100%;
+  height: auto;
+  background: #fff;
+  box-shadow: 0 18px 36px color-mix(in srgb, var(--ink) 18%, transparent);
+}
+
+.journalBlock {
+  display: grid;
+  gap: 0.7rem;
+  padding-bottom: 2rem;
 }
 
 .feature {
@@ -157,6 +177,17 @@
   .prints {
     grid-template-columns: 1fr 1fr;
     gap: 2rem 1.5rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .zine {
+    grid-template-columns: 1fr;
+    justify-items: start;
+  }
+
+  .cover {
+    width: min(240px, 70vw);
   }
 }
 

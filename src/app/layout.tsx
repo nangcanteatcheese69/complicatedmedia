@@ -21,11 +21,11 @@ const text = Source_Sans_3({
 
 export const metadata: Metadata = {
   title: {
-    default: "Nang — Photographs and prints",
-    template: "%s — Nang",
+    default: "complicated-media — Photographs and prints",
+    template: "%s — complicated-media",
   },
   description:
-    "Photographs, short films, and small editions of prints by Nang Suan Mung.",
+    "Photographs, short films, and small editions of prints by complicated-media.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

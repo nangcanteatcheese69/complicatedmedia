@@ -21,8 +21,8 @@ export function HeaderView({
           <Image
             src="/logo.png"
             alt="complicated"
-            width={1080}
-            height={1080}
+            width={861}
+            height={807}
             priority
           />
         </Link>

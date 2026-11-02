@@ -1,6 +1,6 @@
-# Nang
+# complicated-media
 
-A studio site for photographs, short films, and prints by Nang Suan Mung.
+A studio site for photographs, short films, and prints by complicated-media.
 
 ## Run
 
@@ -17,13 +17,11 @@ npm run build
 npm start
 ```
 
-## Sample content
+## Content
 
-- Series, journal, films, and shop data: `src/content/`
-- Plates: `public/media/`
-- Silent reel loops and posters: `public/media/reels/`
-
-`npm run plates` rebuilds the plates and loops (needs `sharp` and `ffmpeg`). To use a real film, drop an mp4 in `public/media/reels` and set `src` on the entry in `src/content/videos.ts`.
+- Journal, shop, and film data: `src/content/`
+- Zine pages: `public/zine/` (`/zine` turns them)
+- Logo: `public/logo.png` (transparent mark)
 
 ## Checkout
 
