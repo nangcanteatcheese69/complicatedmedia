@@ -1,12 +1,13 @@
 :root {
-  --paper: #f3efe6;
-  --paper-deep: #e7e1d4;
-  --ink: #1b1916;
-  --muted: #4e4942;
-  --line: #d4cec3;
-  --accent: #8e3b2c;
-  --dark: #12110f;
-  --bone: #e7e1d4;
+  /* Taken from the complicated mark and the flower on the print files. */
+  --paper: #e5f1ff;
+  --ink: #3b2929;
+  --accent: #df539e;
+  --paper-deep: color-mix(in srgb, var(--ink) 10%, var(--paper));
+  --line: color-mix(in srgb, var(--ink) 16%, var(--paper));
+  --muted: color-mix(in srgb, var(--ink) 75%, var(--paper));
+  --dark: var(--ink);
+  --bone: var(--paper);
   --measure: 40rem;
   color-scheme: light;
 }
@@ -93,7 +94,7 @@ button {
 }
 
 ::selection {
-  background: #e4cfc4;
+  background: color-mix(in srgb, var(--accent) 32%, var(--paper));
   color: var(--ink);
 }
 
@@ -196,7 +197,6 @@ button {
 }
 
 .text-link:hover {
-  color: var(--accent);
   text-decoration-color: var(--accent);
 }
 

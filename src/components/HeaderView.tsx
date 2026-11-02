@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { isCurrent, NAV } from "@/components/nav";
 import styles from "./Header.module.css";
@@ -17,7 +18,13 @@ export function HeaderView({
           className={styles.brand}
           aria-current={pathname === "/" ? "page" : undefined}
         >
-          Nang
+          <Image
+            src="/logo.png"
+            alt="complicated"
+            width={1080}
+            height={1080}
+            priority
+          />
         </Link>
         <nav aria-label="Primary" className={styles.nav}>
           {NAV.map((item) => (

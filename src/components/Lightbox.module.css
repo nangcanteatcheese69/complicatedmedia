@@ -84,7 +84,7 @@
 }
 
 .count {
-  color: #b7b1a6;
+  color: color-mix(in srgb, var(--bone) 72%, transparent);
   font-variant-numeric: tabular-nums;
   font-size: 0.92rem;
   white-space: nowrap;
@@ -105,6 +105,6 @@
   }
 
   .side {
-    background: rgba(243, 239, 230, 0.14);
+    background: color-mix(in srgb, var(--bone) 18%, transparent);
   }
 }

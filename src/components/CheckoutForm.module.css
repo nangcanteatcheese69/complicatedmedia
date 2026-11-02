@@ -101,7 +101,7 @@
 }
 
 .error {
-  color: var(--accent);
+  color: var(--ink);
   font-size: 0.95rem;
 }
 
@@ -109,7 +109,9 @@
   display: grid;
   gap: 0.4rem;
   padding-bottom: 0.4rem;
-  color: var(--accent);
+  padding-left: 0.75rem;
+  border-left: 2px solid var(--accent);
+  color: var(--ink);
 }
 
 .alert ul {
