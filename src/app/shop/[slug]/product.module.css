@@ -1,0 +1,49 @@
+.layout {
+  display: grid;
+  gap: 2rem;
+}
+
+.frame {
+  background: var(--paper-deep);
+}
+
+.frame img {
+  width: 100%;
+  height: auto;
+}
+
+.info {
+  display: grid;
+  gap: 0.9rem;
+  align-content: start;
+}
+
+.facts {
+  display: grid;
+  margin-top: 0.5rem;
+}
+
+.facts div {
+  display: grid;
+  grid-template-columns: 7rem 1fr;
+  gap: 1rem;
+  padding-block: 0.55rem;
+  border-top: 1px solid var(--line);
+}
+
+.facts dt {
+  color: var(--muted);
+}
+
+@media (min-width: 900px) {
+  .layout {
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 3.5rem;
+    align-items: start;
+  }
+
+  .info {
+    position: sticky;
+    top: 6rem;
+  }
+}

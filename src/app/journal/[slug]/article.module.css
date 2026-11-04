@@ -1,0 +1,55 @@
+.head {
+  display: grid;
+  gap: 0.9rem;
+  max-width: 40rem;
+}
+
+.body {
+  max-width: 40rem;
+  margin-top: 2.2rem;
+  font-size: 1.15rem;
+  line-height: 1.7;
+}
+
+.body p + p,
+.body h2,
+.body figure,
+.body blockquote {
+  margin-top: 1.2rem;
+}
+
+.body h2 {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  margin-top: 2rem;
+}
+
+.quote {
+  font-family: var(--font-display), Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(1.6rem, 3vw, 2.15rem);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  padding: 0;
+  border: 0;
+}
+
+.figure {
+  margin-inline: 0;
+}
+
+.figure img {
+  width: 100%;
+  height: auto;
+  background: var(--paper-deep);
+}
+
+.figure figcaption {
+  margin-top: 0.5rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.related {
+  margin-top: 2.5rem;
+}

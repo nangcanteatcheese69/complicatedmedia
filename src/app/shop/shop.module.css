@@ -1,0 +1,44 @@
+.empty {
+  display: grid;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+}
+
+.grid {
+  display: grid;
+  gap: 3rem 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.card {
+  display: grid;
+  gap: 0.55rem;
+  text-decoration: none;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  background: var(--paper-deep);
+}
+
+.card h2 {
+  font-size: clamp(1.6rem, 2.5vw, 2.15rem);
+}
+
+.card:hover h2 {
+  font-style: italic;
+}
+
+@media (min-width: 720px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem 2rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card:hover h2 {
+    font-style: normal;
+  }
+}

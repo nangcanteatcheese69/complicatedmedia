@@ -1,0 +1,41 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem 1.25rem;
+  margin-top: 3rem;
+}
+
+.item:nth-child(3n + 1) {
+  grid-column: 1 / -1;
+}
+
+.frame {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: var(--paper-deep);
+  cursor: zoom-in;
+}
+
+.frame img {
+  width: 100%;
+  height: auto;
+}
+
+.caption {
+  margin-top: 0.55rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 720px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .item:nth-child(3n + 1) {
+    grid-column: auto;
+  }
+}
