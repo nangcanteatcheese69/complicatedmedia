@@ -25,6 +25,27 @@ function lastSpread(total: number) {
   return Math.ceil((total - 1) / 2);
 }
 
+function turningLeaf(turn: Turn, pages: ZinePage[]) {
+  const [left, right] = pairAt(turn.from, pages.length);
+  if (right == null) {
+    const page = pages[left];
+    if (!page) return null;
+    // A lone cover turns on the same center gutter as an open spread.
+    return {
+      page,
+      className: turn.dir > 0 ? styles.leafRight : styles.leafLeft,
+    } as const;
+  }
+  if (turn.dir > 0) {
+    const page = pages[right];
+    if (!page) return null;
+    return { page, className: styles.leafRight } as const;
+  }
+  const page = pages[left];
+  if (!page) return null;
+  return { page, className: styles.leafLeft } as const;
+}
+
 function spreadLabel(index: number, total: number) {
   const [left, right] = pairAt(index, total);
   if (index === 0) return `Cover, page 1 of ${total}`;
@@ -177,8 +198,8 @@ export function ZineBook({ title, pages }: { title: string; pages: ZinePage[] })
   }, []);
 
   const wide = turn ? isPair(turn.from, pages.length) || isPair(turn.to, pages.length) : isPair(shown, pages.length);
-  const outgoingPair = turn ? isPair(turn.from, pages.length) : false;
   const label = spreadLabel(turn ? turn.to : index, pages.length);
+  const leaf = turn ? turningLeaf(turn, pages) : null;
 
   const arrows = (
     <>
@@ -230,13 +251,12 @@ export function ZineBook({ title, pages }: { title: string; pages: ZinePage[] })
         <div className={wide && !isPair(shown, pages.length) ? styles.centerHalf : undefined}>
           <Face pages={pages} index={shown} labelled={!turn} />
         </div>
-        {turn ? (
-          <div
-            className={`${styles.sheet} ${outgoingPair ? styles.sheetFull : styles.sheetHalf} ${
-              turn.dir > 0 ? styles.forward : styles.backward
-            }`}
-          >
-            <Face pages={pages} index={turn.from} labelled={false} />
+        {leaf ? (
+          <div className={styles.hinge}>
+            <div className={`${styles.leaf} ${leaf.className}`}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={leaf.page.src} alt="" width={leaf.page.width} height={leaf.page.height} />
+            </div>
           </div>
         ) : null}
       </div>
