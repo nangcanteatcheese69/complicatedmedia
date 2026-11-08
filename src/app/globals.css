@@ -8,7 +8,7 @@
   --muted: color-mix(in srgb, var(--ink) 75%, var(--paper));
   --dark: var(--ink);
   --bone: var(--paper);
-  --measure: 40rem;
+  --measure: 42rem;
   color-scheme: light;
 }
 
@@ -25,10 +25,11 @@ body {
   min-height: 100%;
   background: var(--paper);
   color: var(--ink);
-  font-family: var(--font-text), "Source Sans 3", sans-serif;
-  font-size: 1.0625rem;
-  line-height: 1.6;
+  font-family: var(--font-text), "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.95rem;
+  line-height: 1.5;
   font-weight: 400;
+  letter-spacing: 0.01em;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
@@ -49,23 +50,25 @@ dd {
 h1,
 h2,
 h3 {
-  font-family: var(--font-display), Georgia, serif;
-  font-weight: 500;
-  letter-spacing: -0.03em;
-  line-height: 0.98;
+  font-family: var(--font-display), "Arial Narrow", Impact, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 0.92;
+  text-transform: uppercase;
   text-wrap: balance;
 }
 
 h1 {
-  font-size: clamp(2.7rem, 7vw, 5.6rem);
+  font-size: clamp(2.6rem, 7vw, 5rem);
+  letter-spacing: 0.06em;
 }
 
 h2 {
-  font-size: clamp(2rem, 4vw, 3.15rem);
+  font-size: clamp(1.7rem, 3.4vw, 2.6rem);
 }
 
 h3 {
-  font-size: clamp(1.45rem, 2.4vw, 2rem);
+  font-size: clamp(1.25rem, 2vw, 1.7rem);
 }
 
 p {
@@ -128,12 +131,12 @@ button {
 }
 
 .page {
-  padding-block: clamp(2.2rem, 5vw, 4.25rem) clamp(4rem, 9vw, 7rem);
+  padding-block: clamp(1.2rem, 3vw, 2rem) clamp(3.5rem, 8vw, 6rem);
 }
 
 .kicker {
-  font-family: var(--font-text), sans-serif;
-  font-size: 0.75rem;
+  font-family: var(--font-text), ui-monospace, monospace;
+  font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -145,17 +148,24 @@ button {
 }
 
 .lede {
-  font-family: var(--font-display), Georgia, serif;
-  font-style: italic;
+  font-family: var(--font-text), ui-monospace, monospace;
+  font-style: normal;
   font-weight: 500;
-  font-size: clamp(1.65rem, 3vw, 2.45rem);
-  line-height: 1.16;
-  letter-spacing: -0.02em;
-  max-width: 22em;
+  font-size: clamp(0.98rem, 1.5vw, 1.12rem);
+  line-height: 1.45;
+  letter-spacing: 0.01em;
+  max-width: 40em;
+  color: var(--muted);
 }
 
 .measure {
   max-width: var(--measure);
+}
+
+.mosaic {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 8px;
 }
 
 .crumbs {
@@ -166,7 +176,10 @@ button {
   padding: 0;
   margin: 0 0 1.75rem;
   color: var(--muted);
-  font-size: 0.95rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 .crumbs li {

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { MagazineTile } from "@/components/MagazineTile";
 import { getPost, posts, postsByDate } from "@/content/posts";
 import { getSeries } from "@/content/series";
 import { formatDate, readingTime } from "@/lib/format";
@@ -30,21 +31,19 @@ export default async function JournalArticle({ params }: Props) {
   const more = postsByDate().filter((item) => item.slug !== post.slug);
 
   return (
-    <article className="wrap page">
-      <nav aria-label="Breadcrumb">
-        <ol className="crumbs">
-          <li>
+    <article>
+      <header className={styles.hero}>
+        <div className={styles.heroCopy}>
+          <p className="kicker">
             <Link href="/journal">Journal</Link>
-          </li>
-          <li aria-current="page">{post.title}</li>
-        </ol>
-      </nav>
-      <header className={styles.head}>
-        <p className="kicker">
-          {formatDate(post.date)} — {readingTime(post)}
-        </p>
-        <h1>{post.title}</h1>
-        <p className="lede">{post.dek}</p>
+            {" — "}
+            {formatDate(post.date)}
+            {" — "}
+            {readingTime(post)}
+          </p>
+          <h1>{post.title}</h1>
+          <p className={styles.standfirst}>{post.dek}</p>
+        </div>
       </header>
       <div className={styles.body}>
         {post.blocks.map((block, index) => {
@@ -64,7 +63,7 @@ export default async function JournalArticle({ params }: Props) {
                   alt={block.alt}
                   width={block.width}
                   height={block.height}
-                  sizes="(max-width: 800px) 100vw, 40rem"
+                  sizes="100vw"
                 />
                 <figcaption>{block.caption}</figcaption>
               </figure>
@@ -81,15 +80,22 @@ export default async function JournalArticle({ params }: Props) {
         ) : null}
       </div>
       {more.length > 0 ? (
-        <section className={styles.related} aria-labelledby="more-notes">
-          <h2 id="more-notes">More notes</h2>
-          <ul className="crumbs" style={{ marginTop: "0.8rem" }}>
+        <section className={styles.more} aria-labelledby="more-notes">
+          <h2 id="more-notes" className={styles.moreLabel}>
+            More notes
+          </h2>
+          <div className="mosaic">
             {more.map((item) => (
-              <li key={item.slug}>
-                <Link href={`/journal/${item.slug}`}>{item.title}</Link>
-              </li>
+              <MagazineTile
+                key={item.slug}
+                href={`/journal/${item.slug}`}
+                size="half"
+                kicker={`Journal — ${formatDate(item.date)}`}
+                title={item.title}
+                dek={item.dek}
+              />
             ))}
-          </ul>
+          </div>
         </section>
       ) : null}
     </article>

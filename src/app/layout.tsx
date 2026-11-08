@@ -1,20 +1,20 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Source_Sans_3 } from "next/font/google";
+import { Barlow_Condensed, IBM_Plex_Mono } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { SiteHeader } from "@/components/SiteHeader";
 import "./globals.css";
 
-const display = Cormorant_Garamond({
+const display = Barlow_Condensed({
   subsets: ["latin"],
-  weight: ["500", "600"],
-  style: ["normal", "italic"],
+  weight: ["600", "700"],
   variable: "--font-display",
   display: "swap",
 });
 
-const text = Source_Sans_3({
+const text = IBM_Plex_Mono({
   subsets: ["latin"],
-  weight: ["400", "600"],
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
   variable: "--font-text",
   display: "swap",
 });

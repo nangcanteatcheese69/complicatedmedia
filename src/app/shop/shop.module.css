@@ -1,3 +1,13 @@
+.mast {
+  display: grid;
+  gap: 0.55rem;
+  padding-block: 1.15rem 1rem;
+}
+
+.mast h1 {
+  font-size: clamp(3rem, 9vw, 6.2rem);
+}
+
 .empty {
   display: grid;
   gap: 0.8rem;

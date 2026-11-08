@@ -9,12 +9,13 @@
 }
 
 .name {
-  font-family: var(--font-display), Georgia, serif;
-  font-style: italic;
-  font-weight: 500;
-  font-size: 1.85rem;
-  letter-spacing: -0.03em;
+  font-family: var(--font-display), "Arial Narrow", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.7rem;
+  letter-spacing: 0.12em;
   line-height: 1;
+  text-transform: uppercase;
 }
 
 .links {
@@ -25,6 +26,11 @@
 
 .links a {
   text-decoration: none;
+  font-size: 0.72rem;
+  font-weight: 500;
+  font-style: italic;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 .links a:hover {

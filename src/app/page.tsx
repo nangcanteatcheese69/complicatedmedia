@@ -1,57 +1,57 @@
-import Image from "next/image";
-import Link from "next/link";
+import { MagazineTile } from "@/components/MagazineTile";
+import { stickers } from "@/content/graphics";
 import { postsByDate } from "@/content/posts";
 import { zine } from "@/content/zine";
-import { formatDate } from "@/lib/format";
-import styles from "./page.module.css";
+import { formatDate, readingTime } from "@/lib/format";
 
 export default function HomePage() {
-  const essay = postsByDate()[0];
+  const posts = postsByDate();
   const cover = zine.pages[0];
 
   return (
     <>
-      <section className={`wrap page ${styles.hero}`}>
-        <p className="kicker">Studio</p>
-        <h1>
-          Photographs, <em>short films,</em> and prints.
-        </h1>
-        <p className={styles.dek}>
-          complicated-media. The work on the table is {zine.title}.
-        </p>
-      </section>
-
-      <section className={`wrap ${styles.zine}`} aria-labelledby="zine-title">
-        <Link className={styles.cover} href="/zine">
-          <Image
-            src={cover.src}
-            alt={cover.alt}
-            width={cover.width}
-            height={cover.height}
-            priority
-            sizes="(max-width: 720px) 70vw, 280px"
+      <MagazineTile
+        href="/zine"
+        size="lead"
+        heading="h1"
+        priority
+        kicker="Zine"
+        title={zine.title}
+        dek={zine.dek}
+        image={{
+          src: cover.src,
+          alt: cover.alt,
+          width: cover.width,
+          height: cover.height,
+        }}
+      />
+      <div className="mosaic">
+        {posts.map((post, index) => (
+          <MagazineTile
+            key={post.slug}
+            href={`/journal/${post.slug}`}
+            size={index === posts.length - 1 && posts.length % 2 === 1 ? "lead" : "half"}
+            kicker={`Journal — ${formatDate(post.date)} — ${readingTime(post)}`}
+            title={post.title}
+            dek={post.dek}
           />
-        </Link>
-        <div className={styles.journal}>
-          <p className="kicker">Zine</p>
-          <h2 id="zine-title">{zine.title}</h2>
-          <p className="measure">{zine.dek}</p>
-          <Link className="text-link" href="/zine">
-            Turn the pages
-          </Link>
-        </div>
-      </section>
-
-      {essay ? (
-        <section className={`wrap ${styles.journalBlock}`} aria-labelledby="journal-title">
-          <p className="kicker">Journal — {formatDate(essay.date)}</p>
-          <h2 id="journal-title">{essay.title}</h2>
-          <p className="measure">{essay.dek}</p>
-          <Link className="text-link" href={`/journal/${essay.slug}`}>
-            Read the note
-          </Link>
-        </section>
-      ) : null}
+        ))}
+        {stickers.slice(0, 3).map((sticker) => (
+          <MagazineTile
+            key={sticker.slug}
+            href={`/shop/${sticker.slug}`}
+            size="third"
+            kicker="Graphics"
+            title={sticker.title}
+            image={{
+              src: sticker.src,
+              alt: `Sticker, ${sticker.title}`,
+              width: sticker.width,
+              height: sticker.height,
+            }}
+          />
+        ))}
+      </div>
     </>
   );
 }

@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { MagazineTile } from "@/components/MagazineTile";
 import { postsByDate } from "@/content/posts";
 import { formatDate, readingTime } from "@/lib/format";
-import styles from "./journal.module.css";
 
 export const metadata: Metadata = {
   title: "Journal",
@@ -12,25 +11,19 @@ export const metadata: Metadata = {
 export default function JournalPage() {
   const posts = postsByDate();
   return (
-    <div className="wrap page">
-      <p className="kicker">Notes</p>
-      <h1>Journal</h1>
-      <p className="lede">Process, a small exhibition, and the coast.</p>
-      <ul className={styles.list}>
-        {posts.map((post) => (
-          <li key={post.slug}>
-            <article className={styles.item}>
-              <p className="kicker">
-                {formatDate(post.date)} — {readingTime(post)}
-              </p>
-              <h2>
-                <Link href={`/journal/${post.slug}`}>{post.title}</Link>
-              </h2>
-              <p className="measure">{post.dek}</p>
-            </article>
-          </li>
-        ))}
-      </ul>
+    <div className="mosaic">
+      {posts.map((post, index) => (
+        <MagazineTile
+          key={post.slug}
+          href={`/journal/${post.slug}`}
+          size={index === 0 ? "lead" : "half"}
+          heading={index === 0 ? "h1" : "h2"}
+          priority={index === 0}
+          kicker={`Journal — ${formatDate(post.date)} — ${readingTime(post)}`}
+          title={post.title}
+          dek={post.dek}
+        />
+      ))}
     </div>
   );
 }

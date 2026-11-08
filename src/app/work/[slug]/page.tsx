@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { MagazineTile } from "@/components/MagazineTile";
 import { SeriesGallery } from "@/components/SeriesGallery";
 import { fromPrice, productKindLabel, productsInSeries, showsFromPrice } from "@/content/products";
 import { getSeries, series } from "@/content/series";
@@ -28,31 +29,36 @@ export default async function SeriesPage({ params }: Props) {
   if (!item) notFound();
   const prints = productsInSeries(item.slug);
 
+  const hero = item.images[0];
+
   return (
-    <article className="wrap page">
-      <nav aria-label="Breadcrumb">
-        <ol className="crumbs">
-          <li>
-            <Link href="/work">Work</Link>
-          </li>
-          <li aria-current="page">{item.title}</li>
-        </ol>
-      </nav>
-      <header className={styles.seriesHead}>
+    <article>
+      <MagazineTile
+        size="lead"
+        heading="h1"
+        priority
+        kicker={`${item.year} — ${item.location}`}
+        title={item.title}
+        dek={item.lede}
+        image={
+          hero
+            ? { src: hero.src, alt: hero.alt, width: hero.width, height: hero.height }
+            : undefined
+        }
+      />
+      <div className={`wrap ${styles.statementBlock}`}>
         <p className="kicker">
-          {item.year} — {item.location}
+          <Link href="/work">Work</Link>
         </p>
-        <h1>{item.title}</h1>
-        <p className="lede">{item.lede}</p>
         <div className={styles.statement}>
           {item.statement.map((paragraph) => (
             <p key={paragraph}>{paragraph}</p>
           ))}
         </div>
-      </header>
+      </div>
       <SeriesGallery images={item.images} />
       {prints.length > 0 ? (
-        <section className={styles.prints} aria-labelledby="prints-title">
+        <section className={`wrap ${styles.prints}`} aria-labelledby="prints-title">
           <h2 id="prints-title">
             {prints.every((product) => product.kind === "sticker")
               ? "Stickers"

@@ -1,3 +1,33 @@
+.mast {
+  display: grid;
+  gap: 0.35rem;
+  padding-block: 1.1rem 0.85rem;
+}
+
+.mast h1 {
+  font-size: clamp(3rem, 9vw, 6.2rem);
+}
+
+.statementBlock {
+  display: grid;
+  gap: 0.9rem;
+  padding-block: 2rem 0.5rem;
+}
+
+.statementBlock a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.statementBlock a:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.28em;
+}
+
+.more {
+  margin-top: 8px;
+}
+
 .empty {
   display: grid;
   gap: 0.8rem;

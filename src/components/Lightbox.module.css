@@ -77,7 +77,7 @@
 }
 
 .caption {
-  font-family: var(--font-display), Georgia, serif;
+  font-family: var(--font-display), "Arial Narrow", sans-serif;
   font-style: italic;
   font-size: 1.35rem;
   line-height: 1.2;
